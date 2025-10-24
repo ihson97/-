@@ -1,217 +1,112 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ko">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Portland Premium Pet Snack Project Report</title>
-<style>
-  :root{
-    --bg:#ffffff;
-    --card:#f8fafc;
-    --accent:#2b6cb0;
-    --text:#0f172a;
-    --muted:#475569;
-  }
-  html,body{height:100%;margin:0;font-family:Inter, "Segoe UI", Roboto, Arial, sans-serif;background:var(--bg);color:var(--text);}
-  .container{max-width:1100px;margin:32px auto;padding:20px;}
-  .stage{position:relative;overflow:hidden;border-radius:10px;box-shadow:0 8px 30px rgba(17,24,39,.08);background:linear-gradient(180deg,#fff,#fbfdff);}
-  .slide{display:none;padding:48px 56px;min-height:420px;}
-  .slide.active{display:block;}
-  .title{font-size:28px;font-weight:700;color:var(--accent);margin-bottom:8px;}
-  .subtitle{font-size:14px;color:var(--muted);margin-bottom:18px;}
-  .cols{display:flex;gap:36px;flex-wrap:wrap;}
-  .col{flex:1;min-width:260px;}
-  ul{margin:8px 0 16px 18px;color:var(--muted);}
-  table{border-collapse:collapse;width:100%;margin:10px 0;}
-  table td, table th{border:1px solid #e6eef8;padding:8px;text-align:left;font-size:14px;}
-  .nav{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;background:#f1f7ff;border-top:1px solid #e6eef8;}
-  .btn{background:var(--accent);color:#fff;padding:10px 14px;border-radius:8px;border:none;cursor:pointer;font-weight:600;}
-  .btn.secondary{background:#e6f0ff;color:var(--accent);font-weight:600}
-  .small{font-size:13px;color:var(--muted)}
-  .footer{font-size:13px;color:var(--muted);margin-top:12px}
-  @media(max-width:700px){ .slide{padding:24px} .cols{flex-direction:column} }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>반려견 수제 간식</title>
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fafafa;
+      color: #333;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      background-color: #fff;
+      border-bottom: 1px solid #eee;
+    }
+
+    header img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      margin-top: 20px;
+      font-weight: 600;
+    }
+
+    .product-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+      padding: 60px 20px;
+    }
+
+    .product {
+      background-color: #fff;
+      border-radius: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      width: 280px;
+      text-align: center;
+      padding: 20px;
+      transition: transform 0.2s ease;
+    }
+
+    .product:hover {
+      transform: translateY(-6px);
+    }
+
+    .product img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 16px;
+    }
+
+    .product h2 {
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+
+    .price {
+      font-size: 1.1rem;
+      color: #ff8a65;
+      font-weight: 600;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      font-size: 0.9rem;
+      color: #777;
+    }
+  </style>
 </head>
 <body>
-<div class="container">
-  <div class="stage" id="stage">
-    <!-- Slide 1 -->
-    <section class="slide active" data-index="0">
-      <div class="title">Portland Premium Pet Snack Project Report</div>
-      <div class="subtitle">Business Progress &amp; Strategic Plan</div>
-      <div class="small">Presenter: [Your Name], Project PM &nbsp;•&nbsp; Date: October 2025</div>
-    </section>
+  <header>
+    <img src="images/dog_header.jpg" alt="귀여운 반려견 이미지">
+    <h1>자연 그대로의 건강함, 반려견 수제 간식</h1>
+  </header>
 
-    <!-- Slide 2: Project Overview -->
-    <section class="slide" data-index="1">
-      <div class="title">Project Overview</div>
-      <div class="cols">
-        <div class="col">
-          <strong>Product</strong>
-          <p class="small">Premium natural handmade dog treats for allergic pets</p>
-          <strong>Target Market</strong>
-          <p class="small">Local distributors in Portland, Oregon</p>
-        </div>
-        <div class="col">
-          <strong>Objective</strong>
-          <p class="small">Establish a niche presence in the premium pet snack segment through customized, health-focused offerings</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Slide 3: Business Model -->
-    <section class="slide" data-index="2">
-      <div class="title">Business Model</div>
-      <div class="cols">
-        <div class="col">
-          <strong>Production &amp; Distribution Structure</strong>
-          <ul>
-            <li>Production: Managed by HQ (Korea)</li>
-            <li>Distribution &amp; Customer Service: Handled by local distributor</li>
-            <li>Incoterms: CIF (Cost, Insurance &amp; Freight) – Portland Port</li>
-          </ul>
-        </div>
-        <div class="col">
-          <strong>Profit Allocation</strong>
-          <table>
-            <tr><th>Party</th><th>Share</th></tr>
-            <tr><td>HQ (Company)</td><td>60%</td></tr>
-            <tr><td>Local Distributor</td><td>40%</td></tr>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <!-- Slide 4: Key Differentiation -->
-    <section class="slide" data-index="3">
-      <div class="title">Key Differentiation Points</div>
-      <ol>
-        <li><strong>Natural Ingredients</strong> — 100% natural, additive-free formulation</li>
-        <li><strong>Customization</strong> — Allergy-safe, tailored recipes for chronic conditions</li>
-        <li><strong>Handcrafted Quality</strong> — Small-batch production ensures premium consistency</li>
-        <li><strong>Sustainability</strong> — Eco-conscious production aligned with Portland values</li>
-      </ol>
-    </section>
-
-    <!-- Slide 5: Market Insight -->
-    <section class="slide" data-index="4">
-      <div class="title">Market Insight</div>
-      <ul>
-        <li>Portland is known for its pet-friendly and eco-conscious culture.</li>
-        <li>Consumers seek healthy, premium, and human-grade pet products.</li>
-        <li>Our natural &amp; handmade concept strongly aligns with local preferences.</li>
-      </ul>
-    </section>
-
-    <!-- Slide 6: Key Agreements & Schedule -->
-    <section class="slide" data-index="5">
-      <div class="title">Key Agreements &amp; Schedule</div>
-      <table>
-        <tr><th>Timeline</th><th>Action</th><th>Responsible</th></tr>
-        <tr><td>Nov 2025</td><td>Finalize samples and packaging</td><td>Overseas Sales</td></tr>
-        <tr><td>Dec 2025</td><td>Contract signing</td><td>PM / Legal</td></tr>
-        <tr><td>Jan 2026</td><td>First shipment (CIF)</td><td>Operations</td></tr>
-        <tr><td>Jul 2026</td><td>Pilot sales review &amp; adjustment</td><td>Strategy Team</td></tr>
-      </table>
-    </section>
-
-    <!-- Slide 7: Strategic Recommendations -->
-    <section class="slide" data-index="6">
-      <div class="title">Strategic Recommendations</div>
-      <ol>
-        <li>Position Portland as pilot market — entry point for North American expansion.</li>
-        <li>Co-marketing with local distributor — build brand visibility (events &amp; fairs).</li>
-        <li>Optimize logistics &amp; insurance costs — review CIF budget.</li>
-        <li>Post-pilot evaluation — use 6-month data for next-stage planning.</li>
-      </ol>
-    </section>
-
-    <!-- Slide 8: Expected Outcomes -->
-    <section class="slide" data-index="7">
-      <div class="title">Expected Outcomes</div>
-      <ul>
-        <li>Establish premium brand positioning in North America.</li>
-        <li>Build stable local distribution partnerships.</li>
-        <li>Secure data-driven insights for market scaling.</li>
-      </ul>
-    </section>
-
-    <!-- Slide 9: Next Steps -->
-    <section class="slide" data-index="8">
-      <div class="title">Next Steps</div>
-      <ol>
-        <li>Confirm HQ support for logistics and marketing budgets.</li>
-        <li>Initiate co-marketing plan with local partner.</li>
-        <li>Prepare Q1 2026 shipment documentation.</li>
-        <li>Plan follow-up report after 6-month pilot phase.</li>
-      </ol>
-    </section>
-
-    <!-- Slide 10: Closing -->
-    <section class="slide" data-index="9">
-      <div class="title">Closing</div>
-      <p class="small">Thank you.</p>
-      <p class="small">For further details:<br>[Your Name], Project PM<br>[Email Address] | [Phone Number]</p>
-    </section>
-
-    <!-- Navigation -->
-    <div class="nav">
-      <div>
-        <button class="btn secondary" id="prevBtn" aria-label="Previous slide">◀ Prev</button>
-        <button class="btn" id="nextBtn" aria-label="Next slide">Next ▶</button>
-      </div>
-      <div class="small">Slide <span id="current">1</span> / <span id="total">10</span></div>
+  <section class="product-section">
+    <div class="product">
+      <img src="images/cookie1.jpg" alt="닭가슴살 쿠키">
+      <h2>닭가슴살 쿠키</h2>
+      <p class="price">13,000원</p>
     </div>
-  </div>
 
-  <div class="footer">
-    Generated from internal project report. Edit placeholders (name, email) before distribution.
-  </div>
-</div>
+    <div class="product">
+      <img src="images/cookie2.jpg" alt="고구마 쿠키">
+      <h2>고구마 쿠키</h2>
+      <p class="price">15,000원</p>
+    </div>
 
-<script>
-  (function(){
-    const slides = Array.from(document.querySelectorAll('.slide'));
-    const total = slides.length;
-    let idx = 0;
-    const currentEl = document.getElementById('current');
-    const totalEl = document.getElementById('total');
-    totalEl.textContent = total;
+    <div class="product">
+      <img src="images/cookie3.jpg" alt="연어 쿠키">
+      <h2>연어 쿠키</h2>
+      <p class="price">18,000원</p>
+    </div>
+  </section>
 
-    function show(i){
-      slides.forEach(s => s.classList.remove('active'));
-      slides[i].classList.add('active');
-      currentEl.textContent = i + 1;
-      // update URL hash for direct linking
-      history.replaceState(null, '', '#slide=' + (i+1));
-    }
-
-    document.getElementById('prevBtn').addEventListener('click', ()=>{
-      idx = (idx - 1 + total) % total;
-      show(idx);
-    });
-    document.getElementById('nextBtn').addEventListener('click', ()=>{
-      idx = (idx + 1) % total;
-      show(idx);
-    });
-
-    // keyboard navigation
-    document.addEventListener('keydown', (e)=>{
-      if(e.key === 'ArrowRight' || e.key === 'PageDown') {
-        idx = (idx + 1) % total; show(idx);
-      } else if(e.key === 'ArrowLeft' || e.key === 'PageUp') {
-        idx = (idx - 1 + total) % total; show(idx);
-      }
-    });
-
-    // initialize from hash if present
-    const m = location.hash.match(/slide=(\d+)/);
-    if(m){
-      const n = parseInt(m[1],10);
-      if(n >= 1 && n <= total) idx = n - 1;
-    }
-    show(idx);
-  })();
-</script>
+  <footer>
+    © 2025 반려견 수제 간식 | 건강하고 맛있는 하루를 선물하세요 🐾
+  </footer>
 </body>
 </html>
